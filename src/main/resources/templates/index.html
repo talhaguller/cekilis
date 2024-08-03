@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazanan Belirleyici</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f0f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #00796b;
+            margin-bottom: 30px; /* Başlık ve form arasına boşluk */
+            text-align: center;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Kazanan Belirleyici</h1>
+    <form action="/winners" method="post">
+        <div class="form-group">
+            <label for="title">Başlık:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="bd">Başlangıç Değeri:</label>
+            <input type="number" id="bd" name="bd" required>
+        </div>
+        <div class="form-group">
+            <label for="sd">Bitiş Değeri:</label>
+            <input type="number" id="sd" name="sd" required>
+        </div>
+        <div class="form-group">
+            <label for="kk">Kazanan Kaç Kişi:</label>
+            <input type="number" id="kk" name="kk" required>
+        </div>
+        <div class="form-group">
+            <label for="onay">Aynı Numara Tekrar Kazanabilir Mi? (E/H):</label>
+            <input type="text" id="onay" name="onay" required>
+        </div>
+        <input type="submit" value="Kazananları Belirle">
+    </form>
+</div>
+</body>
+</html>

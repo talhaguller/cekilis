@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sayfası</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f0f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h2 {
+            color: #00796b;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #00796b;
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004d40;
+        }
+
+        .error {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #00796b;
+            color: white;
+            padding: 12px 0;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Admin Sayfası</h2>
+    <form action="/admin/update" method="post">
+        <label for="jokerName">Joker Adı:</label>
+        <input type="text" id="jokerName" name="jokerName" th:value="${user.jokerName}" required><br>
+        <label for="jokerSayi">Joker Sayısı:</label>
+        <input type="number" id="jokerSayi" name="jokerSayi" th:value="${user.jokerSayi}" required><br>
+        <label for="activate">Aktif:</label>
+        <input type="checkbox" id="activate" name="activate" th:checked="${user.activate}"><br>
+        <input type="submit" value="Güncelle">
+    </form>
+    <p class="error" th:text="${error}"></p>
+    <a class="button" href="/">Anasayfaya Dön</a>
+    <a class="button" href="/logout" style="margin-top: 10px;">Çıkış Yap</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kazananlar</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e8f0f2;
+            margin: 0;
+        }
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+        h2 {
+            color: #00796b;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #00796b;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #00796b;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${title} + ' İçin Kazananlar'"></h2>
+    <table>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Kazanan</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="winner, iterStat : ${winners}">
+            <td th:text="${iterStat.index + 1}"></td>
+            <td th:text="${winner}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="/" class="back-button">Ana Sayfaya Dön</a>
+</div>
+</body>
+</html>
